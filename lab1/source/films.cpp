@@ -784,7 +784,7 @@ int getExistGenreCount(int number)
 	@prototype struct FILMS *wrapSetSource(struct FILMS *films_source, int *films_source_size)
 	@example films_source = wrapSetSource(films_source, &films_source_size);
 	@description обертка для ввода исходных данных
-	@param  struct FILMS *	films_source	=>  указатель на первый элемент структуры
+	@param  struct FILMS *	films_source	=>  Указатель на первый элемент структуры
 	@param  int *	films_source_size	=>  Указатель на переменную, хранящую количество структур
 	@return указатель на первый элемент структуры
 	@end
