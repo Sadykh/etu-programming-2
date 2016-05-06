@@ -28,9 +28,12 @@ struct FILMS
 */
 char *setStr()
 {
-	char *str = (char*) malloc(sizeof(char));	// указатель на первый элемент новой строки
-	int length = 0;								// счётчик количества символов
-
+	//	@start_local_params
+	char *str = (char*) malloc(sizeof(char));	//	Указатель на первый символ строки;;
+	int length = 0;								//	Количество символов;;
+	//	@end_local_params
+	
+	
 	system("cls");
 	getTitle("Ввод названия фильма");
 	printf(" Подсказка: в названии фильма можно использовать любые символы. Минимальное количество символов - 1. Максимальное количество символов %d. \n", MAX_TITLE_FILM);
@@ -81,10 +84,12 @@ char *setStr()
 */
 struct FILMS *set(int *size)
 {
-	int repeat = 0;					// повторять ли
-	struct FILMS *items = NULL;		// массив структура
+	//	@start_local_params
+	int repeat = 0;					// Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	struct FILMS *items = NULL;		// Указатель на первый элемент структуры;;
+	//	@end_local_params
+	
 	*size = 0;						// размер массива структуры
-
 	do
 	{
 		items = (struct FILMS*) realloc(items, (*size + 1) * sizeof(struct FILMS));
@@ -141,7 +146,10 @@ void getHeadTables()
 */
 void getFilms(struct FILMS *items, int size)
 {
-	int offset;
+	//	@start_local_params
+	int offset;	// Количство элементов для вывода за один раз;;
+	//	@end_local_params
+
 	offset = setOffset();
 	getFilmsPage(items, size, offset);
 }
@@ -161,11 +169,12 @@ void getFilms(struct FILMS *items, int size)
 */
 void getFilmsPage(struct FILMS *items, int size, int offset)
 {
-	int maxPages = ceil((float) size / offset);		// максимальное количество страниц
-	int page;										// текущая страница
-	int currentItem;								// текущий номер фильма
-	int maxCurrentItems;							// максимальное количество фильмов на текущей странице
-
+	//	@start_local_params
+	int maxPages = ceil((float) size / offset);		// Максимальное количество страниц;;
+	int page;										// Текущая страница;;
+	int currentItem;								// Текущий номер элемента;;
+	int maxCurrentItems;							// Максимальное количество фильмов на текущей странице;;
+	//	@end_local_params
 
 	for (page = 0; page < maxPages; page++)
 	{
@@ -228,9 +237,10 @@ void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
 */
 int setOffset()
 {
-	int repeat;
-	int number;
-
+	//	@start_local_params
+	int repeat;	//	Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	int number;	// 	Количество фильмов для вывода за один раз;;
+	//	@end_local_params
 	do
 	{
 		getTitle("Ввод количества фильмов для вывода");
@@ -252,7 +262,7 @@ int setOffset()
 	}
 	while (repeat || number < OFFSET_MIN || number > OFFSET_MAX);
 
-	printf(" Ввод количество фильмов для показа завершен. \n\n");
+	printf(" Ввод количества фильмов для показа завершен. \n\n");
 	pressEnterForContinue();
 	return number;
 }
@@ -271,8 +281,10 @@ int setOffset()
 */
 void getFields(int i, struct FILMS *data)
 {
-	char **genres = getGenresArrayList();
-
+	//	@start_local_params
+	char **genres = getGenresArrayList();	// Указатель на адрес первого элемента первой строки;;
+	//	@end_local_params
+	
 	printf(" %-3d", i + 1);
 	printf(" %-60s ", data->title);
 	printf(" %-25s ", *(genres + data->genre));
@@ -318,9 +330,10 @@ void setFilterParams(int *year, int *time)
 */
 int setYear()
 {
-	int year;
-	int repeat;
-
+	//	@start_local_params
+	int year;	//	Год;;
+	int repeat;	//	Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	//	@end_local_params
 	do
 	{
 		getTitle("Ввод года");
@@ -359,9 +372,11 @@ int setYear()
 */
 int setTime()
 {
-	int time;
-	int repeat;
-
+	//	@start_local_params
+	int time;	// Прололжительность;;
+	int repeat;	//	Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	//	@end_local_params
+	
 	do
 	{
 		system("cls");
@@ -400,9 +415,11 @@ int setTime()
 */
 float setRating()
 {
-	float rating;
-	int repeat;
-
+	//	@start_local_params
+	float rating;	//	Рейтинг;;
+	int repeat;		//	Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	//	@end_local_params
+	
 	do
 	{
 		getTitle("Ввод рейтинга фильма");
@@ -440,10 +457,11 @@ float setRating()
 */
 int setGenre()
 {
-	int genre_number;
-	char **genres = getGenresArrayList();
-	int repeat;
-
+	//	@start_local_params
+	int genre_number;						// Номер жанра;;
+	char **genres = getGenresArrayList();	// Указатель на адрес первого элемента первой строки;;
+	int repeat;								//	Вспомогательная переменная для повтора участка кода. 1 - повторить, 0 - нет;;
+	//	@end_local_params
 	do
 	{
 		getTitle("Выбор жанра");
@@ -569,10 +587,12 @@ void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int 
 */
 struct FILMS *process(struct FILMS *items, int size, int year, int time, int *films_result_size, int *film_processed)
 {
-	struct FILMS *resultFilms = NULL;	// структура
-	int i = 0;							// вспомогательные переменные
-	int j = 0;
-
+	//	@start_local_params
+	struct FILMS *resultFilms = NULL;	// Указатель на первый элемент структуры;;
+	int i = 0;							// Вспомогательная переменная;;
+	int j = 0;							// Вспомогательная переменная;;
+	//	@end_local_params
+	
 	getTitle("Обработка данных");
 	if (items != NULL)
 	{
@@ -628,8 +648,10 @@ struct FILMS *process(struct FILMS *items, int size, int year, int time, int *fi
 */
 struct FILMS *freeMemory(struct FILMS *item, int size)
 {
-	int i;	// вспомогательная переменная
-
+	//	@start_local_params
+	int i;	// Вспомогательная переменная;
+	//	@end_local_params
+	
 	if (item != NULL)
 	{
 		for (i = 0; i < size; i++)
@@ -657,10 +679,12 @@ struct FILMS *freeMemory(struct FILMS *item, int size)
 */
 char **getGenresArrayList()
 {
-	int count = 0;	// количество жанров
-	int i;			// вспомогательная переменная
-	char **genres;	// адрес указателя на 1 символ строки
-
+	//	@start_local_params
+	int count = 0;	// Количество жанров;;
+	int i;			// Вспомогательная переменная;;
+	char **genres;	// Указатель на адрес первого элемента первой строки;;
+	//	@end_local_params
+	
 	char *genresArray[] = {"аниме", "биографический", "боевик", "вестерн", "военный",
 		"детектив", "детский", "документальный", "драма", "исторический",
 		"кинокомикс", "комедия", "концерт", "короткометражный", "криминал",
@@ -692,9 +716,11 @@ char **getGenresArrayList()
 */
 void getGenresPrintList()
 {
-	char **genres = getGenresArrayList();
-	int i = 0;
-
+	//	@start_local_params
+	char **genres = getGenresArrayList();	// Указатель на адрес первого элемента первой строки;;
+	int i = 0;								// Вспомогательная переменная;;
+	//	@end_local_params
+	
 	printf("\n\n");
 	for (i = 0; *(genres + i) != "\0"; i++)
 	{
@@ -718,9 +744,10 @@ void getGenresPrintList()
 */
 int getGenresCount()
 {
-	char **genres = getGenresArrayList();
-	int count = 0;
-
+	//	@start_local_params
+	char **genres = getGenresArrayList();	// Указатель на адрес первого элемента первой строки;;
+	int count = 0;							// Количество жанров;;
+	//	@end_local_params
 	while (strlen(*(genres + count)))
 		count++;
 
@@ -740,7 +767,9 @@ int getGenresCount()
 */
 int getExistGenreCount(int number)
 {
-	int count = getGenresCount();
+	//	@start_local_params
+	int count = getGenresCount();	// Количество жанров;;
+	//	@end_local_params
 
 	if (number < 0 || number >= count)
 		return 0;
