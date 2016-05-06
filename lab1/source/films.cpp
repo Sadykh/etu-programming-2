@@ -21,9 +21,9 @@ struct FILMS
 	@start
 	@name setStr
 	@prototype char *setStr()
-	@example setStr
-	@description Описание функции
-	@return Возврат функции
+	@example str = setStr();
+	@description ввод строки
+	@return указатель на первой символ строки
 	@end
 */
 char *setStr()
@@ -73,10 +73,10 @@ char *setStr()
 	@start
 	@name set
 	@prototype struct FILMS *set(int *size)
-	@example set
-	@description Описание функции
-	@param  int *	size	=>  Описание аргумента 
-	@return Возврат функции
+	@example films_source = set(films_source_size);
+	@description ввод структуры
+	@param  int *	size	=>  Указатель на переменную, хранящую количество структур 
+	@return указатель на первый элемент структуры
 	@end
 */
 struct FILMS *set(int *size)
@@ -111,9 +111,9 @@ struct FILMS *set(int *size)
 	@start
 	@name getHeadTables
 	@prototype void getHeadTables()
-	@example getHeadTables
-	@description Описание функции
-	@return Возврат функции
+	@example getHeadTables();
+	@description вывод заголовка таблицы
+	@return
 	@end
 */
 void getHeadTables()
@@ -132,11 +132,11 @@ void getHeadTables()
 	@start
 	@name getFilms
 	@prototype void getFilms(struct FILMS *items, int size)
-	@example getFilms
-	@description Описание функции
-	@param  struct FILMS *	items	=>  Описание аргумента 
-	@param  int	size	=>  Описание аргумента 
-	@return Возврат функции
+	@example getFilms(films_source, films_source_size);
+	@description вывод структуры на экран
+	@param  struct FILMS *	items	=>  Указатель на первый элемент структуры
+	@param  int	size	=>  Количество элементов
+	@return
 	@end
 */
 void getFilms(struct FILMS *items, int size)
@@ -151,12 +151,12 @@ void getFilms(struct FILMS *items, int size)
 	@start
 	@name getFilmsPage
 	@prototype void getFilmsPage(struct FILMS *items, int size, int offset)
-	@example getFilmsPage
-	@description Описание функции
-	@param  struct FILMS *	items	=>  Описание аргумента 
-	@param  int	size	=>  Описание аргумента 
-	@param  int	offset	=>  Описание аргумента 
-	@return Возврат функции
+	@example getFilmsPage(items, size, offset);
+	@description вывод страницы с фильмами
+	@param  struct FILMS *	items	=>  Указатель на первый элемент структуры
+	@param  int	size	=>  Указатель на переменную, хранящую количество структур 
+	@param  int	offset	=>  количество фильмов для вывода за раз
+	@return
 	@end
 */
 void getFilmsPage(struct FILMS *items, int size, int offset)
@@ -200,13 +200,13 @@ void getFilmsPage(struct FILMS *items, int size, int offset)
 	@start
 	@name getPageInfo
 	@prototype void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
-	@example getPageInfo
-	@description Описание функции
-	@param  int	maxPages	=>  Описание аргумента 
-	@param  int	page	=>  Описание аргумента 
-	@param  int	currentItem	=>  Описание аргумента 
-	@param  int	maxCurrentItems	=>  Описание аргумента 
-	@return Возврат функции
+	@example getPageInfo(maxPages, page, currentItem, maxCurrentItems);
+	@description вывод информации о странице
+	@param  int	maxPages	=>  максимальное количество страниц
+	@param  int	page	=>  текущая страница
+	@param  int	currentItem	=>  текущий номер фильма
+	@param  int	maxCurrentItems	=>  максимальное количество фильмов на текущей странице
+	@return
 	@end
 */
 void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
@@ -221,9 +221,9 @@ void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
 	@start
 	@name setOffset
 	@prototype int setOffset()
-	@example setOffset
-	@description Описание функции
-	@return Возврат функции
+	@example offset = setOffset();
+	@description задать количество фильмов для вывода за один раз
+	@return количество фильмов для вывода за один раз
 	@end
 */
 int setOffset()
@@ -262,11 +262,11 @@ int setOffset()
 	@start
 	@name getFields
 	@prototype void getFields(int i, struct FILMS *data)
-	@example getFields
-	@description Описание функции
-	@param  int	i	=>  Описание аргумента 
-	@param  struct FILMS *	data	=>  Описание аргумента 
-	@return Возврат функции
+	@example getFields(currentItem, items + currentItem);
+	@description вывод каждого поля
+	@param  int	i	=>  текущий номер фильма
+	@param  struct FILMS *	data	=>  указатель на первый элемент структуры
+	@return
 	@end
 */
 void getFields(int i, struct FILMS *data)
@@ -287,10 +287,10 @@ void getFields(int i, struct FILMS *data)
 	@name setFilterParams
 	@prototype void setFilterParams(int *year, int *time)
 	@example setFilterParams
-	@description Описание функции
-	@param  int *	year	=>  Описание аргумента 
-	@param  int *	time	=>  Описание аргумента 
-	@return Возврат функции
+	@description ввод параметров для фильтрации
+	@param  int *	year	=>  Указатель на переменную, хранящую год
+	@param  int *	time	=>  Указатель на переменную, хранящую продолжительность
+	@return
 	@end
 */
 void setFilterParams(int *year, int *time)
@@ -311,9 +311,9 @@ void setFilterParams(int *year, int *time)
 	@start
 	@name setYear
 	@prototype int setYear()
-	@example setYear
-	@description Описание функции
-	@return Возврат функции
+	@example *year = setYear();
+	@description ввод года
+	@return год фильма
 	@end
 */
 int setYear()
@@ -352,9 +352,9 @@ int setYear()
 	@start
 	@name setTime
 	@prototype int setTime()
-	@example setTime
-	@description Описание функции
-	@return Возврат функции
+	@example *time = setTime();
+	@description ввод продолжительности
+	@return продолжительность фильма
 	@end
 */
 int setTime()
@@ -393,9 +393,9 @@ int setTime()
 	@start
 	@name setRating
 	@prototype float setRating()
-	@example setRating
-	@description Описание функции
-	@return Возврат функции
+	@example (items + *size)->rating = setRating();
+	@description ввод рейтинга
+	@return рейтинг фильма
 	@end
 */
 float setRating()
@@ -433,9 +433,9 @@ float setRating()
 	@start
 	@name setGenre
 	@prototype int setGenre()
-	@example setGenre
-	@description Описание функции
-	@return Возврат функции
+	@example (items + *size)->genre = setGenre();
+	@description ввод жанра
+	@return номер жанра
 	@end
 */
 int setGenre()
@@ -478,10 +478,10 @@ int setGenre()
 	@name wrapGetfilterParams
 	@prototype void wrapGetfilterParams(int filterParamYear, int filterParamTime)
 	@example wrapGetfilterParams
-	@description Описание функции
-	@param  int	filterParamYear	=>  Описание аргумента 
-	@param  int	filterParamTime	=>  Описание аргумента 
-	@return Возврат функции
+	@description обертка для вывода значений для фильтрации
+	@param  int	filterParamYear	=>  год фильма, для фильтрации
+	@param  int	filterParamTime	=>  продолжительность фильма, для фильтрации
+	@return
 	@end
 */
 void wrapGetfilterParams(int filterParamYear, int filterParamTime)
@@ -509,10 +509,10 @@ void wrapGetfilterParams(int filterParamYear, int filterParamTime)
 	@name wrapGetFilmsSource
 	@prototype void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
 	@example wrapGetFilmsSource
-	@description Описание функции
-	@param  struct FILMS *	films_source	=>  Описание аргумента 
-	@param  int	films_source_size	=>  Описание аргумента 
-	@return Возврат функции
+	@description вывод параметров для фильтрации
+	@param  struct FILMS *	films_source	=>  указатель на первый элемент структуры
+	@param  int	films_source_size	=>  Количество элементов
+	@return
 	@end
 */
 void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
@@ -530,11 +530,11 @@ void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
 	@name wrapGetFilmsResults
 	@prototype void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int film_processed)
 	@example wrapGetFilmsResults
-	@description Описание функции
-	@param  struct FILMS *	films_result	=>  Описание аргумента 
-	@param  int	films_result_size	=>  Описание аргумента 
-	@param  int	film_processed	=>  Описание аргумента 
-	@return Возврат функции
+	@description обертка для вывода результатов
+	@param  struct FILMS *	films_result	=>  указатель на первый элемент структуры
+	@param  int	films_result_size	=>  Количество элементов
+	@param  int	film_processed	=>  Флаг, указывающий на: 1 - структура обработана, 0 - нет
+	@return
 	@end
 */
 void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int film_processed)
@@ -557,14 +557,14 @@ void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int 
 	@name process
 	@prototype struct FILMS *process(struct FILMS *items, int size, int year, int time, int *films_result_size, int *film_processed)
 	@example process
-	@description Описание функции
-	@param  struct FILMS *	items	=>  Описание аргумента 
-	@param  int	size	=>  Описание аргумента 
-	@param  int	year	=>  Описание аргумента 
-	@param  int	time	=>  Описание аргумента 
-	@param  int *	films_result_size	=>  Описание аргумента 
-	@param  int *	film_processed	=>  Описание аргумента 
-	@return Возврат функции
+	@description обработка структуры по фильтрам
+	@param  struct FILMS *	items	=>  Указатель на адрес первый элемент структуры
+	@param  int	size	=>  Количество структур 
+	@param  int	year	=>  Года, для фильтрации
+	@param  int	time	=>  Продолжительность, для фильтрации
+	@param  int *	films_result_size	=>  Указатель на переменную, хранящую количество структур
+	@param  int *	film_processed	=>  Указатель на переменную, хранящую состояние обработки: 1 - обработаны, 0 - нет
+	@return указатель на первый элемент структуры
 	@end
 */
 struct FILMS *process(struct FILMS *items, int size, int year, int time, int *films_result_size, int *film_processed)
@@ -619,11 +619,11 @@ struct FILMS *process(struct FILMS *items, int size, int year, int time, int *fi
 	@start
 	@name freeMemory
 	@prototype struct FILMS *freeMemory(struct FILMS *item, int size)
-	@example freeMemory
-	@description Описание функции
-	@param  struct FILMS *	item	=>  Описание аргумента 
-	@param  int	size	=>  Описание аргумента 
-	@return Возврат функции
+	@example films_source = freeMemory(films_source, films_source_size);
+	@description освобождение памяти, выделенной под структуры
+	@param  struct FILMS *	item	=>  Указатель на первый элемент структуры
+	@param  int	size	=>  Количество элементов
+	@return NULL
 	@end
 */
 struct FILMS *freeMemory(struct FILMS *item, int size)
@@ -650,9 +650,9 @@ struct FILMS *freeMemory(struct FILMS *item, int size)
 	@start
 	@name getGenresArrayList
 	@prototype char **getGenresArrayList()
-	@example getGenresArrayList
-	@description Описание функции
-	@return Возврат функции
+	@example char **genres = getGenresArrayList();
+	@description формирование списка жанров
+	@return указать на адрес первого элемента первой строки
 	@end
 */
 char **getGenresArrayList()
@@ -685,9 +685,9 @@ char **getGenresArrayList()
 	@start
 	@name getGenresPrintList
 	@prototype void getGenresPrintList()
-	@example getGenresPrintList
-	@description Описание функции
-	@return Возврат функции
+	@example getGenresPrintList();
+	@description вывод списка на экран
+	@return
 	@end
 */
 void getGenresPrintList()
@@ -711,9 +711,9 @@ void getGenresPrintList()
 	@start
 	@name getGenresCount
 	@prototype int getGenresCount()
-	@example getGenresCount
-	@description Описание функции
-	@return Возврат функции
+	@example count = getGenresCount();
+	@description подсчет количества жанров
+	@return количество жанров целым числом
 	@end
 */
 int getGenresCount()
@@ -732,10 +732,10 @@ int getGenresCount()
 	@start
 	@name getExistGenreCount
 	@prototype int getExistGenreCount(int number)
-	@example getExistGenreCount
-	@description Описание функции
-	@param  int	number	=>  Описание аргумента 
-	@return Возврат функции
+	@example !getExistGenreCount(genre_number - 1)
+	@description проверка, введен существующий жанр или нет
+	@param  int	number	=>  номер жанра
+	@return 1 - жанр существует, 0 - жанр не существует
 	@end
 */
 int getExistGenreCount(int number)
@@ -753,11 +753,11 @@ int getExistGenreCount(int number)
 	@start
 	@name wrapSetSource
 	@prototype struct FILMS *wrapSetSource(struct FILMS *films_source, int *films_source_size)
-	@example wrapSetSource
-	@description Описание функции
-	@param  struct FILMS *	films_source	=>  Описание аргумента 
-	@param  int *	films_source_size	=>  Описание аргумента 
-	@return Возврат функции
+	@example films_source = wrapSetSource(films_source, &films_source_size);
+	@description обертка для ввода исходных данных
+	@param  struct FILMS *	films_source	=>  указатель на первый элемент структуры
+	@param  int *	films_source_size	=>  Указатель на переменную, хранящую количество структур
+	@return указатель на первый элемент структуры
 	@end
 */
 struct FILMS *wrapSetSource(struct FILMS *films_source, int *films_source_size)

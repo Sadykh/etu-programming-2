@@ -11,9 +11,9 @@
 	@start
 	@name pressEnterForContinue
 	@prototype void pressEnterForContinue()
-	@example pressEnterForContinue
-	@description Описание функции
-	@return Возврат функции
+	@example pressEnterForContinue();
+	@description получить подтверждение нажатием на Enter для продолжения работы программы
+	@return
 	@end
 */
 void pressEnterForContinue()
@@ -28,10 +28,10 @@ void pressEnterForContinue()
 	@start
 	@name getTitle
 	@prototype void getTitle(char *title)
-	@example getTitle
-	@description Описание функции
-	@param  char *	title	=>  Описание аргумента 
-	@return Возврат функции
+	@example getTitle ("Выход");
+	@description вывод заголовка выбранного пункта меню на экран
+	@param  char *	title	=>  Указатель на первый символ строки
+	@return
 	@end
 */
 void getTitle(char *title)
@@ -45,9 +45,9 @@ void getTitle(char *title)
 	@start
 	@name getMenu
 	@prototype void getMenu()
-	@example getMenu
-	@description Описание функции
-	@return Возврат функции
+	@example getMenu();
+	@description вывод меню на экран
+	@return
 	@end
 */
 void getMenu()
@@ -68,9 +68,9 @@ void getMenu()
 	@start
 	@name getReference
 	@prototype void getReference()
-	@example getReference
-	@description Описание функции
-	@return Возврат функции
+	@example getReference();
+	@description вывод справки на экран
+	@return 
 	@end
 */
 void getReference()
@@ -89,10 +89,10 @@ void getReference()
 	@start
 	@name getError
 	@prototype void getError(int error_code)
-	@example getError
-	@description Описание функции
-	@param  int	error_code	=>  Описание аргумента 
-	@return Возврат функции
+	@example getError();
+	@description вывод ошибки на экран
+	@param  int	error_code	=>  Номер ошибки
+	@return
 	@end
 */
 void getError(int error_code)
@@ -158,9 +158,9 @@ void getError(int error_code)
 	@start
 	@name getchr
 	@prototype char getchr()
-	@example getchr
-	@description Описание функции
-	@return Возврат функции
+	@example getchr();
+	@description ввод символа
+	@return введённый символ
 	@end
 */
 char getchr()
