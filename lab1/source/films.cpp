@@ -18,8 +18,13 @@ struct FILMS
 };
 
 /*
-	Описание: ввод строки
-	Возврат: адрес указателя на 1 символ строки.
+	@start
+	@name setStr
+	@prototype char *setStr()
+	@example setStr
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 char *setStr()
 {
@@ -34,7 +39,7 @@ char *setStr()
 	// проверяем, что количество символов не превышало и не было перевода на новую строку
 	while (length < MAX_TITLE_FILM && ((*(str + length) = getchr()) != '\n'))
 	{
-		
+
 		// если backspace, то уменьшаем счётчик символов и выводим в консоль введеный backspace
 		if ((*(str + length) == '\b'))
 		{
@@ -63,13 +68,20 @@ char *setStr()
 	return str;
 }
 
+
 /*
-	Описание: ввод исходной структуры
-	Возврат: указатель на первый элемент массива структуры
+	@start
+	@name set
+	@prototype struct FILMS *set(int *size)
+	@example set
+	@description Описание функции
+	@param  int *	size	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 struct FILMS *set(int *size)
 {
-	int repeat = 0;					// повторять ли 
+	int repeat = 0;					// повторять ли
 	struct FILMS *items = NULL;		// массив структура
 	*size = 0;						// размер массива структуры
 
@@ -94,9 +106,15 @@ struct FILMS *set(int *size)
 	return items;
 }
 
+
 /*
-	Описание: вывести заголовки таблицы
-	Возврат: ничего
+	@start
+	@name getHeadTables
+	@prototype void getHeadTables()
+	@example getHeadTables
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 void getHeadTables()
 {
@@ -109,9 +127,17 @@ void getHeadTables()
 	printf("\n \n");
 }
 
+
 /*
-	Описание: вывод фильмов
-	Возврат: ничего
+	@start
+	@name getFilms
+	@prototype void getFilms(struct FILMS *items, int size)
+	@example getFilms
+	@description Описание функции
+	@param  struct FILMS *	items	=>  Описание аргумента 
+	@param  int	size	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getFilms(struct FILMS *items, int size)
 {
@@ -120,9 +146,18 @@ void getFilms(struct FILMS *items, int size)
 	getFilmsPage(items, size, offset);
 }
 
+
 /*
-	Описание: вывести страницу с фильмом
-	Возврат: ничего
+	@start
+	@name getFilmsPage
+	@prototype void getFilmsPage(struct FILMS *items, int size, int offset)
+	@example getFilmsPage
+	@description Описание функции
+	@param  struct FILMS *	items	=>  Описание аргумента 
+	@param  int	size	=>  Описание аргумента 
+	@param  int	offset	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getFilmsPage(struct FILMS *items, int size, int offset)
 {
@@ -160,9 +195,19 @@ void getFilmsPage(struct FILMS *items, int size, int offset)
 	printf("\n\n Вывод списка фильмов завершен.");
 }
 
+
 /*
-	Описание: вывод информации о том, на какой мы странице
-	Возврат: ничего
+	@start
+	@name getPageInfo
+	@prototype void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
+	@example getPageInfo
+	@description Описание функции
+	@param  int	maxPages	=>  Описание аргумента 
+	@param  int	page	=>  Описание аргумента 
+	@param  int	currentItem	=>  Описание аргумента 
+	@param  int	maxCurrentItems	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
 {
@@ -171,9 +216,15 @@ void getPageInfo(int maxPages, int page, int currentItem, int maxCurrentItems)
 	printf("\n\n\n");
 }
 
+
 /*
-	Описание: задать количество фильмов
-	Возврат: число фильмов
+	@start
+	@name setOffset
+	@prototype int setOffset()
+	@example setOffset
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 int setOffset()
 {
@@ -206,9 +257,17 @@ int setOffset()
 	return number;
 }
 
+
 /*
-	Описание: вывод каждого поля
-	Возврат: ничего
+	@start
+	@name getFields
+	@prototype void getFields(int i, struct FILMS *data)
+	@example getFields
+	@description Описание функции
+	@param  int	i	=>  Описание аргумента 
+	@param  struct FILMS *	data	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getFields(int i, struct FILMS *data)
 {
@@ -222,9 +281,17 @@ void getFields(int i, struct FILMS *data)
 	printf(" %-10.1f ", data->rating);
 }
 
+
 /*
-Описание: ввод параметров для фильтрации
-Возврат: ничего
+	@start
+	@name setFilterParams
+	@prototype void setFilterParams(int *year, int *time)
+	@example setFilterParams
+	@description Описание функции
+	@param  int *	year	=>  Описание аргумента 
+	@param  int *	time	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void setFilterParams(int *year, int *time)
 {
@@ -239,9 +306,15 @@ void setFilterParams(int *year, int *time)
 	*time = setTime();
 }
 
+
 /*
-	Описание: ввод года
-	Возврат: число
+	@start
+	@name setYear
+	@prototype int setYear()
+	@example setYear
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 int setYear()
 {
@@ -274,9 +347,15 @@ int setYear()
 	return year;
 }
 
+
 /*
-	Описание: ввод продолжительности
-	Возврат: число
+	@start
+	@name setTime
+	@prototype int setTime()
+	@example setTime
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 int setTime()
 {
@@ -308,9 +387,16 @@ int setTime()
 	pressEnterForContinue();
 	return time;
 }
+
+
 /*
-	Описание: ввод рейтинга
-	Возврат: число
+	@start
+	@name setRating
+	@prototype float setRating()
+	@example setRating
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 float setRating()
 {
@@ -342,9 +428,15 @@ float setRating()
 	return rating;
 }
 
+
 /*
-	Описание: ввод жанра
-	Возврат: число
+	@start
+	@name setGenre
+	@prototype int setGenre()
+	@example setGenre
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 int setGenre()
 {
@@ -380,9 +472,17 @@ int setGenre()
 	return genre_number - 1;
 }
 
+
 /*
-	Описание: обертка для вывода значений для фильтрации
-	Возврат: ничего
+	@start
+	@name wrapGetfilterParams
+	@prototype void wrapGetfilterParams(int filterParamYear, int filterParamTime)
+	@example wrapGetfilterParams
+	@description Описание функции
+	@param  int	filterParamYear	=>  Описание аргумента 
+	@param  int	filterParamTime	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void wrapGetfilterParams(int filterParamYear, int filterParamTime)
 {
@@ -403,9 +503,17 @@ void wrapGetfilterParams(int filterParamYear, int filterParamTime)
 		getError(5);
 }
 
+
 /*
-	Описание: вывод параметров для фильтрации
-	Возврат: ничего
+	@start
+	@name wrapGetFilmsSource
+	@prototype void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
+	@example wrapGetFilmsSource
+	@description Описание функции
+	@param  struct FILMS *	films_source	=>  Описание аргумента 
+	@param  int	films_source_size	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
 {
@@ -416,9 +524,18 @@ void wrapGetFilmsSource(struct FILMS *films_source, int films_source_size)
 		getError(3);
 }
 
+
 /*
-	Описание: вывод результатов
-	Возврат: ничего
+	@start
+	@name wrapGetFilmsResults
+	@prototype void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int film_processed)
+	@example wrapGetFilmsResults
+	@description Описание функции
+	@param  struct FILMS *	films_result	=>  Описание аргумента 
+	@param  int	films_result_size	=>  Описание аргумента 
+	@param  int	film_processed	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int film_processed)
 {
@@ -431,12 +548,24 @@ void wrapGetFilmsResults(struct FILMS *films_result, int films_result_size, int 
 	else
 		getError(14);
 
-	
+
 }
 
+
 /*
-	Описание: обработка структуры по фильтрам
-	Возврат: указатель на первый элемент структуры
+	@start
+	@name process
+	@prototype struct FILMS *process(struct FILMS *items, int size, int year, int time, int *films_result_size, int *film_processed)
+	@example process
+	@description Описание функции
+	@param  struct FILMS *	items	=>  Описание аргумента 
+	@param  int	size	=>  Описание аргумента 
+	@param  int	year	=>  Описание аргумента 
+	@param  int	time	=>  Описание аргумента 
+	@param  int *	films_result_size	=>  Описание аргумента 
+	@param  int *	film_processed	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 struct FILMS *process(struct FILMS *items, int size, int year, int time, int *films_result_size, int *film_processed)
 {
@@ -486,10 +615,16 @@ struct FILMS *process(struct FILMS *items, int size, int year, int time, int *fi
 }
 
 
-
 /*
-	Описание: освобождение памяти
-	Возврат: NULL
+	@start
+	@name freeMemory
+	@prototype struct FILMS *freeMemory(struct FILMS *item, int size)
+	@example freeMemory
+	@description Описание функции
+	@param  struct FILMS *	item	=>  Описание аргумента 
+	@param  int	size	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 struct FILMS *freeMemory(struct FILMS *item, int size)
 {
@@ -510,9 +645,15 @@ struct FILMS *freeMemory(struct FILMS *item, int size)
 	return NULL;
 }
 
+
 /*
-	Описание: формирование списка жанров
-	Возврат: адрес указателя на 1 символ строки
+	@start
+	@name getGenresArrayList
+	@prototype char **getGenresArrayList()
+	@example getGenresArrayList
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 char **getGenresArrayList()
 {
@@ -539,9 +680,15 @@ char **getGenresArrayList()
 	return genres;
 }
 
+
 /*
-	Описание: вывод на экран списка
-	Возврат: ничего
+	@start
+	@name getGenresPrintList
+	@prototype void getGenresPrintList()
+	@example getGenresPrintList
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 void getGenresPrintList()
 {
@@ -559,9 +706,15 @@ void getGenresPrintList()
 	printf("\n\n");
 }
 
+
 /*
-	Описание: подсчет количества жанров
-	Возврат: количество жанров целым числом
+	@start
+	@name getGenresCount
+	@prototype int getGenresCount()
+	@example getGenresCount
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 int getGenresCount()
 {
@@ -574,9 +727,16 @@ int getGenresCount()
 	return count;
 }
 
+
 /*
-	Описание: проверка, введен существующий жанр или нет
-	Возврат: 1 - жанр существует, 0 - жанр не существует
+	@start
+	@name getExistGenreCount
+	@prototype int getExistGenreCount(int number)
+	@example getExistGenreCount
+	@description Описание функции
+	@param  int	number	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 int getExistGenreCount(int number)
 {
@@ -588,14 +748,22 @@ int getExistGenreCount(int number)
 	return 1;
 }
 
+
 /*
-	Описание: обертка для ввода исходный данных
-	Возврат: указатель на первый элемент массива структуры
+	@start
+	@name wrapSetSource
+	@prototype struct FILMS *wrapSetSource(struct FILMS *films_source, int *films_source_size)
+	@example wrapSetSource
+	@description Описание функции
+	@param  struct FILMS *	films_source	=>  Описание аргумента 
+	@param  int *	films_source_size	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 struct FILMS *wrapSetSource(struct FILMS *films_source, int *films_source_size)
 {
 	getTitle("Ввод данных");
 
 	films_source = set(films_source_size);
-	return films_source;	
+	return films_source;
 }

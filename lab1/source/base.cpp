@@ -7,10 +7,14 @@
 #define _NO_CRT_STDIO_INLINE
 
 
-
 /*
-	Описание: нажать enter для продолжения работы программы
-	Возврат: ничего
+	@start
+	@name pressEnterForContinue
+	@prototype void pressEnterForContinue()
+	@example pressEnterForContinue
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 void pressEnterForContinue()
 {
@@ -19,9 +23,16 @@ void pressEnterForContinue()
 	while (_getch() != '\r');
 }
 
+
 /*
-	Описание: вывод заголовка пункта на экран.
-	Возврат: ничего.
+	@start
+	@name getTitle
+	@prototype void getTitle(char *title)
+	@example getTitle
+	@description Описание функции
+	@param  char *	title	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getTitle(char *title)
 {
@@ -29,9 +40,15 @@ void getTitle(char *title)
 	printf("\n ===== %s \n\n", title);
 }
 
+
 /*
-	Описание: вывод меню на экран.
-	Возврат: ничего.
+	@start
+	@name getMenu
+	@prototype void getMenu()
+	@example getMenu
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 void getMenu()
 {
@@ -46,9 +63,15 @@ void getMenu()
 	printf(" 0 - Выход из программы\n");
 }
 
+
 /*
-	Описание: вывод справки
-	Возврат: ничего
+	@start
+	@name getReference
+	@prototype void getReference()
+	@example getReference
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 void getReference()
 {
@@ -63,8 +86,14 @@ void getReference()
 
 
 /*
-	Описание: вывод ошибки
-	Возврат: ничего
+	@start
+	@name getError
+	@prototype void getError(int error_code)
+	@example getError
+	@description Описание функции
+	@param  int	error_code	=>  Описание аргумента 
+	@return Возврат функции
+	@end
 */
 void getError(int error_code)
 {
@@ -124,9 +153,15 @@ void getError(int error_code)
 	pressEnterForContinue();
 }
 
+
 /*
-	Описание: ввод символа
-	Возврат: введеный символ
+	@start
+	@name getchr
+	@prototype char getchr()
+	@example getchr
+	@description Описание функции
+	@return Возврат функции
+	@end
 */
 char getchr()
 {
